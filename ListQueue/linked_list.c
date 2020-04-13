@@ -20,3 +20,33 @@ node_in_list* initialize_list() {
 	node_in_list* head = NULL;
 	return head;
 }
+
+void free_list(node_in_list* head) {
+	/********************************************************\
+	* Function name - free_list
+	*
+	* Function Purpose - free all elements in linked list
+	*
+	* Parameters - IN linked_list* head - pointer to the first node
+	*				in linked list
+	*
+	* Return Value - this function has no return value
+	*
+	* Side Effects - this function free allocated memory of all the elements
+	*				 in linked list
+	*
+	* Semantics - this function free allocated memory og all the elements
+	*			  in linked list
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list* tmp;
+
+	while (NULL != head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp->element);
+		free(tmp);
+	}
+}

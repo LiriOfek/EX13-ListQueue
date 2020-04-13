@@ -20,3 +20,4 @@ typedef struct list
 }node_in_list;
 
 node_in_list* initialize_list();
+void free_list(node_in_list* head);

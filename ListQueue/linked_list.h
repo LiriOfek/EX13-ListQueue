@@ -21,3 +21,4 @@ typedef struct list
 
 node_in_list* initialize_list();
 void free_list(node_in_list* head);
+node_in_list* add_node_to_end_of_list(node_in_list* head);

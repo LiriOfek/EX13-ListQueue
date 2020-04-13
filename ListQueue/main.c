@@ -18,7 +18,7 @@ Purpose: This file contain test functions of linked list
 #define PRINT_CONTENT_OF_FIRST_NODE ("Content of first node: %d\n")
 #define PRINT_LENGTH_OF_LIST ("Length of the list: %d\n")
 
-enum return_values { FAILURE, SUCCESS };
+enum return_values { SUCCESS, FAILURE};
 
 int elements_to_list[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 

@@ -100,6 +100,26 @@ node_in_list* add_node_to_end_of_list(node_in_list* head) {
 	return head;
 }
 
+node_in_list* get_first_node_from_list(node_in_list* head) {
+	/********************************************************\
+	* Function name - get_first_node_from_list
+	*
+	* Function Purpose - return the first node in the list
+	*
+	* Parameters - INOUT linked_list* head - pointer to the first node
+	*				in linked list
+	*
+	* Return Value - pointer to the first node in the list
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function return the first node in the list
+	*
+	* Author - Liri
+	\********************************************************/
+	return head;
+}
+
 node_in_list* get_last_node_from_list(node_in_list* head) {
 	/********************************************************\
 	* Function name - get_last_node_from_list

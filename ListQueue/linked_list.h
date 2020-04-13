@@ -1,7 +1,7 @@
 /********************************************************\
 File Name: linked_list.h
 Author: Liri (13/4/2020)
-Purpose: This file contain the struct of the linked list and 
+Purpose: This header file contain the struct of the linked list and 
 		 the decleration functions for implement inked list
 \********************************************************/
 

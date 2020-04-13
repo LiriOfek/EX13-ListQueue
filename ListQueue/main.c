@@ -154,6 +154,56 @@ int test_function_for_linked_list() {
 	return SUCCESS;
 }
 
+Queue* fill_queue_with_int_element(Queue* queue,
+	int size_of_list) {
+	/********************************************************\
+	* Function name - fill_array_with_int_element
+	*
+	* Function Purpose - fill the list with INITIAL_SIZE_OF_LIST elements
+	*
+	* Parameters - INOUT node_in_list* head - pointer to the first node of the
+	*			   list after fill the list with elements
+	*			   IN int size_of_list - the number of elements to push in the
+	*			   list
+	*
+	* Return Value - pointer to the first node of the list after fill it
+	*				 with elements
+	*
+	* Side Effects - this function add elements to the list
+	*
+	* Semantics - this function add INITIAL_SIZE_OF_LIST elements
+	*			  to the list
+	*
+	* Author - Liri
+	\********************************************************/
+	int index = INITIAL_INDEX;
+
+	for (index = INITIAL_INDEX; index < size_of_list; ++index)
+	{
+		queue = enqueue(queue, &elements_to_list[index]);
+	}
+	return queue;
+}
+
+void print_elements_in_queue(Queue* queue) {
+	/********************************************************\
+	* Function name - print_elements_in_list
+	*
+	* Function Purpose - print the elements in the list
+	*
+	* Parameters - IN node_in_list* head - pointer to the first node of the
+	*			   list
+	*
+	* Return Value - this function has no return value
+	*
+	* Side Effects - this function has no side effects
+	*
+	* Semantics - this function print the elements of the list
+	*
+	* Author - Liri
+	\********************************************************/
+	print_elements_in_list(queue->front);
+}
 
 int main() {
 	/********************************************************\
@@ -177,8 +227,14 @@ int main() {
 	\********************************************************/
 	Queue *queue;
 	queue = initialize_queue();
-	enqueue(queue, &elements_to_list[0]);
-	printf("Element in Queue: %d\n", *((int*)get_content_of_node(queue->front)));
+
+	fill_queue_with_int_element(queue,
+								INITIAL_SIZE_OF_LIST);
+
+	print_elements_in_queue(queue);
+
+	queue = dequeue(queue);
+	print_elements_in_queue(queue);
 
 	free_list(queue->front);
 	free(queue);

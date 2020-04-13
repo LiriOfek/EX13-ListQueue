@@ -38,3 +38,8 @@ Queue* enqueue(Queue *queue, void* element) {
 	}
 	return queue;
 }
+
+Queue* dequeue(Queue *queue) {
+	queue->front = delete_first_node_in_list(&(queue->front));
+	return queue;
+}

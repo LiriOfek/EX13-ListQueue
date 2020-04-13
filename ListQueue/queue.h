@@ -20,5 +20,6 @@ typedef struct queue
 
 Queue* initialize_queue();
 Queue* enqueue(Queue *queue, void* element);
+Queue* dequeue(Queue *queue);
 
 #endif

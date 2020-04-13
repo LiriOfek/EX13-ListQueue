@@ -289,3 +289,23 @@ node_in_list* delete_first_node_in_list(node_in_list** head) {
 		return NULL;
 	}
 }
+
+void* get_content_of_node(node_in_list *current_node) {
+	/********************************************************\
+	* Function name - get_content_of_node
+	*
+	* Function Purpose - get content of the current node
+	*
+	* Parameters - IN node_in_list* current node
+	*			   OUT void* pointer to the content of the current node
+	*
+	* Return Value - the content of the current node
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function return the content of the current node
+	*
+	* Author - Liri
+	\********************************************************/
+	return current_node->element;
+}

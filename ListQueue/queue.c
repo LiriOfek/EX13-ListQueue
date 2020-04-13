@@ -30,9 +30,11 @@ Queue* enqueue(Queue *queue, void* element) {
 	new_node->element = element;
 	new_node->next = NULL;
 	if (NULL == queue->front) {
+		/*the queue is empty*/
 		queue->front = queue->rear = new_node;
 	}
 	else {
+		/*add the new element in the bottom of the queue*/
 		queue->rear->next = new_node;
 		queue->rear = new_node;
 	}

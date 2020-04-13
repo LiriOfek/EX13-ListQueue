@@ -60,7 +60,7 @@ node_in_list* fill_list_with_int_element(node_in_list* head,
 	return head;
 }
 
-/*test_function 2*/
+/*test_function 2 - for linked list*/
 void print_elements_in_list(node_in_list* head) {
 	/********************************************************\
 	* Function name - print_elements_in_list
@@ -188,6 +188,10 @@ Queue* fill_queue_with_int_element(Queue* queue,
 	for (index = INITIAL_INDEX; index < size_of_list; ++index)
 	{
 		queue = enqueue(queue, &elements_to_list[index]);
+		if (NULL == queue)
+		{
+			return NULL;
+		}
 	}
 	return queue;
 }
@@ -212,6 +216,42 @@ void print_elements_in_queue(Queue* queue) {
 	print_elements_in_list(queue->front);
 }
 
+int test_function_for_queue() {
+	Queue *queue;
+
+	/*initialize queue*/
+	queue = initialize_queue();
+	if (NULL == queue)
+	{
+		return FAILURE;
+	}
+
+	/*add elements to the queue*/
+	queue = fill_queue_with_int_element(queue,
+										INITIAL_SIZE_OF_LIST);
+	if (NULL == queue)
+	{
+		return FAILURE;
+	}
+	print_elements_in_queue(queue);
+
+	printf(PRINT_ELEMENTS_AFTER_DEQUEUE);
+	
+	/*dequeue element from the queue*/
+	queue = dequeue(queue);
+	print_elements_in_queue(queue);
+
+	/*get first node*/
+	printf(PRINT_FIRST_ELEMENT_IN_QUEUE,
+		*((int*)get_first_element_in_queue(queue)));
+
+	/*the length of the queue*/
+	printf(PRINT_LENGTH_OF_QUEUE, length_of_queue(queue));
+
+	free_queue(queue);
+	return SUCCESS;
+}
+
 int main() {
 	/********************************************************\
 	* Function name - main
@@ -232,27 +272,7 @@ int main() {
 	*
 	* Author - Liri
 	\********************************************************/
-	Queue *queue;
-	queue = initialize_queue();
-
-	fill_queue_with_int_element(queue,
-								INITIAL_SIZE_OF_LIST);
-
-	print_elements_in_queue(queue);
-	
-	printf(PRINT_ELEMENTS_AFTER_DEQUEUE);
-
-	queue = dequeue(queue);
-
-	print_elements_in_queue(queue);
-
-	/*get first node*/
-	printf(PRINT_FIRST_ELEMENT_IN_QUEUE,
-		*((int*)get_first_element_in_queue(queue)));
-
-	printf(PRINT_LENGTH_OF_QUEUE, length_of_queue(queue));
-
-	free_queue(queue);
+	return test_function_for_queue();
 
 }
 

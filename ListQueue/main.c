@@ -24,7 +24,7 @@ Purpose: This file contain test functions of linked list
 #define PRINT_ELEMENTS_AFTER_DELETE_FIRST_NODE ("List elements after delete the first node:\n")
 
 
-enum return_values { FAILURE, SUCCESS };
+enum return_values { SUCCESS, FAILURE };
 
 int elements_to_list[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 

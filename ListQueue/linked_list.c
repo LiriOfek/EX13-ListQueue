@@ -221,3 +221,25 @@ node_in_list* get_previous_node(node_in_list* head, node_in_list* current_node) 
 	}
 	return previous_node;
 }
+
+void free_node_in_list(node_in_list* node_to_delete) {
+	/********************************************************\
+	* Function name - free_node_in_list
+	*
+	* Function Purpose - free the allocated memory of the given node
+	*
+	* Parameters - IN node_in_list* node_to_delete - the node that need
+	*				to delete
+	*
+	* Return Value - this function has no return value
+	*
+	* Side Effects - free the memory that allocated for the given node
+	*
+	* Semantics - this function free the allocated memory of the given node
+	*
+	* Author - Liri
+	\********************************************************/
+
+	free(node_to_delete->element);
+	free(node_to_delete);
+}

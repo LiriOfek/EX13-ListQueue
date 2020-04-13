@@ -14,7 +14,7 @@ Purpose: This header file contain queue struct and
 	and the pointer to the final node in list*/
 typedef struct queue
 {
-	node_in_list *front;
+	node_in_list *front; 
 	node_in_list *rear;
 }Queue;
 

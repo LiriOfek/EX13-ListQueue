@@ -21,5 +21,7 @@ typedef struct queue
 Queue* initialize_queue();
 Queue* enqueue(Queue *queue, void* element);
 Queue* dequeue(Queue *queue);
+void* get_first_element_in_queue(Queue *queue);
+void free_queue(Queue *queue);
 
 #endif

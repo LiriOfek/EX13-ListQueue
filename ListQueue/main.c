@@ -232,10 +232,16 @@ int main() {
 								INITIAL_SIZE_OF_LIST);
 
 	print_elements_in_queue(queue);
-
+	
 	queue = dequeue(queue);
+
 	print_elements_in_queue(queue);
 
-	free_list(queue->front);
-	free(queue);
+	/*get first node*/
+	printf(PRINT_FIRST_NODE,
+		*((int*)get_first_element_in_queue(queue)));
+
+	free_queue(queue);
+
 }
+

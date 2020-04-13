@@ -43,3 +43,12 @@ Queue* dequeue(Queue *queue) {
 	queue->front = delete_first_node_in_list(&(queue->front));
 	return queue;
 }
+
+void* get_first_element_in_queue(Queue *queue) {
+	return get_content_of_node(queue->front);
+}
+
+void free_queue(Queue *queue) {
+	free_list(queue->front);
+	free(queue);
+}

@@ -162,24 +162,24 @@ int test_function_for_linked_list() {
 }
 
 Queue* fill_queue_with_int_element(Queue* queue,
-	int size_of_list) {
+									int size_of_list) {
 	/********************************************************\
-	* Function name - fill_array_with_int_element
+	* Function name - fill_queue_with_int_element
 	*
-	* Function Purpose - fill the list with INITIAL_SIZE_OF_LIST elements
+	* Function Purpose - fill the queue with INITIAL_SIZE_OF_LIST elements
 	*
-	* Parameters - INOUT node_in_list* head - pointer to the first node of the
-	*			   list after fill the list with elements
+	* Parameters - INOUT node_in_list* head - pointer to the queue 
+	*			   fill the queue with elements
 	*			   IN int size_of_list - the number of elements to push in the
 	*			   list
 	*
-	* Return Value - pointer to the first node of the list after fill it
+	* Return Value - pointer to the queue after fill it
 	*				 with elements
 	*
-	* Side Effects - this function add elements to the list
+	* Side Effects - this function add elements to the queue
 	*
 	* Semantics - this function add INITIAL_SIZE_OF_LIST elements
-	*			  to the list
+	*			  to the queue
 	*
 	* Author - Liri
 	\********************************************************/
@@ -198,18 +198,18 @@ Queue* fill_queue_with_int_element(Queue* queue,
 
 void print_elements_in_queue(Queue* queue) {
 	/********************************************************\
-	* Function name - print_elements_in_list
+	* Function name - print_elements_in_queue
 	*
-	* Function Purpose - print the elements in the list
+	* Function Purpose - print the elements in the queue
 	*
-	* Parameters - IN node_in_list* head - pointer to the first node of the
-	*			   list
+	* Parameters - IN Queue* queue - pointer to the queue
 	*
 	* Return Value - this function has no return value
 	*
 	* Side Effects - this function has no side effects
 	*
-	* Semantics - this function print the elements of the list
+	* Semantics - this function print the elements of the queue
+	*			  by calling function print_elements_in_list()
 	*
 	* Author - Liri
 	\********************************************************/
@@ -217,6 +217,25 @@ void print_elements_in_queue(Queue* queue) {
 }
 
 int test_function_for_queue() {
+	/********************************************************\
+	* Function name - test_function_for_queue
+	*
+	* Function Purpose - test the functions in queue module
+	*
+	* Parameters - OUT int if there was no error by allocation memory -
+	*				return FAILURE, otherwise return SUCCESS
+	*
+	* Return Value - if there was no error by allocation memory -
+	*				return FAILURE, otherwise return SUCCESS
+	*
+	* Side Effects - this function call functions that allocate memory for
+	*				 nodes and elements in queue
+	*
+	* Semantics - this function call to functions in queue module
+	*			  and print there return values to test them
+	*
+	* Author - Liri
+	\********************************************************/
 	Queue *queue;
 
 	/*initialize queue*/
@@ -256,7 +275,7 @@ int main() {
 	/********************************************************\
 	* Function name - main
 	*
-	* Function Purpose - test the functions in list module
+	* Function Purpose - test the functions in queue module
 	*
 	* Parameters - OUT int if there was no error by allocation memory -
 	*				return FAILURE, otherwise return SUCCESS
@@ -265,9 +284,9 @@ int main() {
 	*				return FAILURE, otherwise return SUCCESS
 	*
 	* Side Effects - this function call functions that allocate memory for
-	*				 nodes and elements in list
+	*				 nodes and elements in queue
 	*
-	* Semantics - this function call to functions in list module
+	* Semantics - this function call to functions in queue module
 	*			  and print there return values to test them
 	*
 	* Author - Liri

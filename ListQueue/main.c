@@ -2,6 +2,8 @@
 
 #define INITIAL_INDEX (0)
 #define ONE (1)
+#define INITIAL_SIZE_OF_LIST (10)
+#define PRINT_CONTENT_OF_ELEMENTS ("the %d'st elemnt: %d\n")
 
 /*test_function 1 - for linked list*/
 node_in_list* fill_list_with_int_element(node_in_list* head,
@@ -46,4 +48,36 @@ node_in_list* fill_list_with_int_element(node_in_list* head,
 		}
 	}
 	return head;
+}
+
+/*test_function 2*/
+void print_elements_in_list(node_in_list* head) {
+	/********************************************************\
+	* Function name - print_elements_in_list
+	*
+	* Function Purpose - print the elements in the list
+	*
+	* Parameters - IN node_in_list* head - pointer to the first node of the
+	*			   list
+	*
+	* Return Value - this function has no return value
+	*
+	* Side Effects - this function has no side effects
+	*
+	* Semantics - this function print the elements of the list
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list* node;
+	int size_of_list = 0;
+
+	size_of_list = length_of_list(head);
+	node = head;
+
+	for (int index = 0; index < size_of_list; ++index) {
+		printf(PRINT_CONTENT_OF_ELEMENTS,
+			index + ONE,
+			*((int*)(node->element)));
+		node = node->next;
+	}
 }

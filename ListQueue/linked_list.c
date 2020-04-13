@@ -154,3 +154,24 @@ node_in_list* get_last_node_from_list(node_in_list* head) {
 	}
 	return current_node;
 }
+
+node_in_list* get_next_node(node_in_list* current_node) {
+	/********************************************************\
+	* Function name - get_next_node
+	*
+	* Function Purpose - get the next node after the given nodes
+	*
+	* Parameters - IN node_in_list* the current node
+	*			   OUT node_in_list* next node after current_node
+	*
+	* Return Value - the next node after current_node
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function return the next node after
+	*			  current node
+	*
+	* Author - Liri
+	\********************************************************/
+	return current_node->next;
+}

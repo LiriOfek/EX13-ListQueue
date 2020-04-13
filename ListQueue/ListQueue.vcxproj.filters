@@ -21,9 +21,15 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="queue.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linked_list.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

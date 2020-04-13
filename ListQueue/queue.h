@@ -18,4 +18,7 @@ typedef struct queue
 	node_in_list *rear;
 }Queue;
 
+Queue* initialize_queue();
+Queue* enqueue(Queue *queue, void* element);
+
 #endif

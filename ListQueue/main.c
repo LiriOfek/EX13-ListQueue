@@ -5,6 +5,7 @@ Purpose: This file contain test functions of linked list
 \********************************************************/
 
 #include "linked_list.h"
+#include "queue.h"
 
 #define INITIAL_INDEX (0)
 #define ONE (1)
@@ -174,5 +175,11 @@ int main() {
 	*
 	* Author - Liri
 	\********************************************************/
-	return test_function_for_linked_list();
+	Queue *queue;
+	queue = initialize_queue();
+	enqueue(queue, &elements_to_list[0]);
+	printf("Element in Queue: %d\n", *((int*)get_content_of_node(queue->front)));
+
+	free_list(queue->front);
+	free(queue);
 }

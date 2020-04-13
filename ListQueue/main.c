@@ -10,7 +10,7 @@ Purpose: This file contain test functions of linked list
 #define INITIAL_INDEX (0)
 #define ONE (1)
 #define INITIAL_SIZE_OF_LIST (10)
-#define PRINT_CONTENT_OF_ELEMENTS ("the %d'st elemnt: %d\n")
+#define PRINT_CONTENT_OF_ELEMENTS ("The %d'st elemnt: %d\n")
 #define PRINT_LIST_AFTER_DELETE_FIRST_NODE ("List after delete first node: \n")
 #define PRINT_FIRST_NODE ("The first node: %d\n")
 #define PRINT_LAST_NODE ("The last node: %d\n")
@@ -18,6 +18,11 @@ Purpose: This file contain test functions of linked list
 #define PRINT_PREVIOUS_NODE_BEFOR_THE_SECOND ("Previous node to the second node: %d\n")
 #define PRINT_CONTENT_OF_FIRST_NODE ("Content of first node: %d\n")
 #define PRINT_LENGTH_OF_LIST ("Length of the list: %d\n")
+#define PRINT_FIRST_ELEMENT_IN_QUEUE ("The first element in queue: %d\n")
+#define PRINT_LENGTH_OF_QUEUE ("Length of the queue: %d\n")
+#define PRINT_ELEMENTS_AFTER_DEQUEUE ("List elements after dequeue:\n")
+#define PRINT_ELEMENTS_AFTER_DELETE_FIRST_NODE ("List elements after delete the first node:\n")
+
 
 enum return_values { FAILURE, SUCCESS };
 
@@ -122,6 +127,8 @@ int test_function_for_linked_list() {
 	}
 
 	print_elements_in_list(head);
+
+	printf(PRINT_ELEMENTS_AFTER_DELETE_FIRST_NODE);
 
 	/*delete first node from list*/
 	head = delete_first_node_in_list(&head);
@@ -233,13 +240,17 @@ int main() {
 
 	print_elements_in_queue(queue);
 	
+	printf(PRINT_ELEMENTS_AFTER_DEQUEUE);
+
 	queue = dequeue(queue);
 
 	print_elements_in_queue(queue);
 
 	/*get first node*/
-	printf(PRINT_FIRST_NODE,
+	printf(PRINT_FIRST_ELEMENT_IN_QUEUE,
 		*((int*)get_first_element_in_queue(queue)));
+
+	printf(PRINT_LENGTH_OF_QUEUE, length_of_queue(queue));
 
 	free_queue(queue);
 

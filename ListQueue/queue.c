@@ -52,3 +52,7 @@ void free_queue(Queue *queue) {
 	free_list(queue->front);
 	free(queue);
 }
+
+unsigned int length_of_queue(Queue *queue) {
+	return length_of_list(queue->front);
+}

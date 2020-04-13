@@ -23,5 +23,6 @@ Queue* enqueue(Queue *queue, void* element);
 Queue* dequeue(Queue *queue);
 void* get_first_element_in_queue(Queue *queue);
 void free_queue(Queue *queue);
+unsigned int length_of_queue(Queue *queue);
 
 #endif

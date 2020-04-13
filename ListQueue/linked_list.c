@@ -175,3 +175,49 @@ node_in_list* get_next_node(node_in_list* current_node) {
 	\********************************************************/
 	return current_node->next;
 }
+
+node_in_list* get_previous_node(node_in_list* head, node_in_list* current_node) {
+	/********************************************************\
+	* Function name - get_previous_node
+	*
+	* Function Purpose - get the node before the current_node, if the list
+	*					 is empty or the current_node is the first element
+	*					 return NULL
+	*
+	* Parameters - IN node_in_list* head - pointer to the first node
+	*				in linked list
+	*			   IN node_in_list* the current node
+	*			   OUT node_in_list* next node before current_node
+	*
+	* Return Value - the next node after current_node
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function return the previous node before
+	*			  current nodeif the list is empty or the current_node
+	*			  is the first element return NULL
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list *previous_node;
+
+	previous_node = head;
+
+	if (head == NULL) {
+		return NULL;
+	}
+
+	if (current_node == previous_node) {
+		return NULL;
+	}
+
+	while (NULL != previous_node)
+	{
+		if (current_node == previous_node->next)
+		{
+			return previous_node;
+		}
+		previous_node = previous_node->next;
+	}
+	return previous_node;
+}

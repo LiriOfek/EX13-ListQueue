@@ -25,3 +25,5 @@ node_in_list* add_node_to_end_of_list(node_in_list* head);
 node_in_list* get_first_node_from_list(node_in_list* head);
 node_in_list* get_last_node_from_list(node_in_list* head);
 node_in_list* get_next_node(node_in_list* current_node);
+node_in_list* get_previous_node(node_in_list* head,
+								node_in_list* current_node);

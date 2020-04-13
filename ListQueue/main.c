@@ -20,6 +20,8 @@ Purpose: This file contain test functions of linked list
 
 enum return_values { FAILURE, SUCCESS };
 
+int elements_to_list[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
 /*test_function 1 - for linked list*/
 node_in_list* fill_list_with_int_element(node_in_list* head,
 	int size_of_list) {
@@ -43,24 +45,11 @@ node_in_list* fill_list_with_int_element(node_in_list* head,
 	*
 	* Author - Liri
 	\********************************************************/
-	node_in_list* current_node;
 	int index = INITIAL_INDEX;
-	current_node = head;
 
 	for (index = INITIAL_INDEX; index < size_of_list; ++index)
 	{
-		current_node->element = (int*)malloc(sizeof(int));
-		*((int*)(current_node->element)) = index;
-		if (NULL == current_node->element)
-		{
-			printf(ERROR_MEMORY_ALLOCATION_FAILED);
-			return NULL;
-		}
-		if (index < size_of_list - ONE)
-		{
-			head = add_node_to_end_of_list(head);
-			current_node = current_node->next;
-		}
+		head = add_node_to_end_of_list(head, &elements_to_list[index]);
 	}
 	return head;
 }
@@ -124,13 +113,6 @@ int test_function_for_linked_list() {
 	/*initiate head*/
 	head = initialize_list();
 
-	/*add element to linked list*/
-	head = add_node_to_end_of_list(head);
-	if (NULL == head)
-	{
-		return FAILURE;
-	}
-
 	/*add elements to the list*/
 	head = fill_list_with_int_element(head, INITIAL_SIZE_OF_LIST);
 	if (NULL == head)
@@ -146,23 +128,25 @@ int test_function_for_linked_list() {
 	print_elements_in_list(head);
 
 	/*get first node*/
-	printf(PRINT_FIRST_NODE, *((int*)(get_first_node_from_list(head)->element)));
+	printf(PRINT_FIRST_NODE, 
+		*((int*)get_content_of_node(head)));
 
 	/*get lest node*/
-	printf(PRINT_LAST_NODE, *((int*)(get_last_node_from_list(head)->element)));
+	printf(PRINT_LAST_NODE, 
+		*((int*)(get_content_of_node(get_last_node_from_list(head)))));
 
 	/*use function to get next node*/
 	node = get_next_node(head);
-	printf(PRINT_NEXT_NODE_AFTER_THE_FIRST, *((int*)(node->element)));
+	printf(PRINT_NEXT_NODE_AFTER_THE_FIRST, 
+		*((int*)get_content_of_node(node)));
 
 	/*use function to get previos node*/
-	printf(PRINT_PREVIOUS_NODE_BEFOR_THE_SECOND, *((int*)(get_previous_node(head, node)->element)));
-
-	/*use function to get the content of the node*/
-	printf(PRINT_CONTENT_OF_FIRST_NODE, *((int*)get_content_of_node(head)));
+	printf(PRINT_PREVIOUS_NODE_BEFOR_THE_SECOND, 
+		*((int*)(get_content_of_node(get_previous_node(head, node)))));
 
 	/*The length of the list:*/
-	printf(PRINT_LENGTH_OF_LIST, length_of_list(head));
+	printf(PRINT_LENGTH_OF_LIST,
+		length_of_list(head));
 
 	free_list(head);
 

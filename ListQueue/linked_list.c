@@ -53,12 +53,11 @@ void free_list(node_in_list* head) {
 	{
 		tmp = head;
 		head = head->next;
-		free(tmp->element);
 		free(tmp);
 	}
 }
 
-node_in_list* add_node_to_end_of_list(node_in_list* head) {
+node_in_list* add_node_to_end_of_list(node_in_list* head, void* element) {
 	/********************************************************\
 	* Function name - add_node_to_end_of_list
 	*
@@ -89,6 +88,7 @@ node_in_list* add_node_to_end_of_list(node_in_list* head) {
 		printf(ERROR_MEMORY_ALLOCATION_FAILED);
 		return NULL;
 	}
+	new_node->element = element;
 	new_node->next = NULL;
 
 	if (head == NULL) {
@@ -229,28 +229,6 @@ node_in_list* get_previous_node(node_in_list* head, node_in_list* current_node) 
 	return previous_node;
 }
 
-void free_node_in_list(node_in_list* node_to_delete) {
-	/********************************************************\
-	* Function name - free_node_in_list
-	*
-	* Function Purpose - free the allocated memory of the given node
-	*
-	* Parameters - IN node_in_list* node_to_delete - the node that need
-	*				to delete
-	*
-	* Return Value - this function has no return value
-	*
-	* Side Effects - free the memory that allocated for the given node
-	*
-	* Semantics - this function free the allocated memory of the given node
-	*
-	* Author - Liri
-	\********************************************************/
-
-	free(node_to_delete->element);
-	free(node_to_delete);
-}
-
 node_in_list* delete_first_node_in_list(node_in_list** head) {
 	/********************************************************\
 	* Function name - delete_first_node_in_list
@@ -285,13 +263,12 @@ node_in_list* delete_first_node_in_list(node_in_list** head) {
 
 	if (NULL != (*head)->next) {
 		*head = (*head)->next;
-		/*free allocate of first node in list*/
-		free_node_in_list(node_to_delete);
+		free(node_to_delete);
 		return *head;
 	}
 
 	else {
-		free_node_in_list(node_to_delete);
+		free(node_to_delete);
 		head = NULL;
 		return NULL;
 	}

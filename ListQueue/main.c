@@ -81,7 +81,7 @@ void print_elements_in_list(node_in_list* head) {
 	for (int index = 0; index < size_of_list; ++index) {
 		printf(PRINT_CONTENT_OF_ELEMENTS,
 			index + ONE,
-			*((int*)(node->element)));
+			*((int*)get_content_of_node(node)));
 		node = node->next;
 	}
 }

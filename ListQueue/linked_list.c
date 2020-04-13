@@ -243,3 +243,49 @@ void free_node_in_list(node_in_list* node_to_delete) {
 	free(node_to_delete->element);
 	free(node_to_delete);
 }
+
+node_in_list* delete_first_node_in_list(node_in_list** head) {
+	/********************************************************\
+	* Function name - delete_first_node_in_list
+	*
+	* Function Purpose - delete the first node in the list, and free its
+	*					 allocated memory if the, if the list is empty
+	*					 or there is only one element in list return NULL
+	*
+	* Parameters - IN node_in_list** head - pointer to the pointer of the
+	*			   first node in list
+	*			   OUT node_in_list* pointer to the first node in list, after
+	*			   delete the first node in the list
+	*
+	* Return Value - the next node after current_node
+	*
+	* Side Effects - this function change the head of the list to point on the
+	*				 next node in list and free the memory allocated for the
+	*				 first node
+	*
+	* Semantics - this function return the previous node before
+	*			  current nodeif the list is empty or the current_node
+	*			  is the first element return NULL
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list *node_to_delete;
+	if (NULL == head) {
+		return NULL;
+	}
+
+	node_to_delete = *head;
+
+	if (NULL != (*head)->next) {
+		*head = (*head)->next;
+		/*free allocate of first node in list*/
+		free_node_in_list(node_to_delete);
+		return *head;
+	}
+
+	else {
+		free_node_in_list(node_to_delete);
+		head = NULL;
+		return NULL;
+	}
+}

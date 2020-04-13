@@ -28,3 +28,4 @@ node_in_list* get_next_node(node_in_list* current_node);
 node_in_list* get_previous_node(node_in_list* head,
 								node_in_list* current_node);
 void free_node_in_list(node_in_list* node_to_delete);
+node_in_list* delete_first_node_in_list(node_in_list** head);

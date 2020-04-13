@@ -1,3 +1,10 @@
+/********************************************************\
+File Name: linked_list.h
+Author: Liri (13/4/2020)
+Purpose: This file contain the the functions for implement
+		 linked list
+\********************************************************/
+
 #include "linked_list.h"
 
 node_in_list* initialize_list() {

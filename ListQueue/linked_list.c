@@ -99,3 +99,38 @@ node_in_list* add_node_to_end_of_list(node_in_list* head) {
 	}
 	return head;
 }
+
+node_in_list* get_last_node_from_list(node_in_list* head) {
+	/********************************************************\
+	* Function name - get_last_node_from_list
+	*
+	* Function Purpose - return the last node of the list, if the list is
+	*					 empty return NULL
+	*
+	* Parameters - IN linked_list* head - pointer to the first node
+	*				in linked list
+	*			   OUT node_in_list* pointer to last node in the list
+	*
+	* Return Value - pointer to the last node in the list
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function go through the given list and and
+	*			  return the last node of the list, if the list is empty
+	*			  return NULL
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list *current_node;
+
+	current_node = head;
+
+	if (NULL == current_node) {
+		/*list is empty*/
+		return NULL;
+	}
+	while (NULL != current_node->next) {
+		current_node = current_node->next;
+	}
+	return current_node;
+}

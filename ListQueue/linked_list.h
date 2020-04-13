@@ -5,6 +5,9 @@ Purpose: This header file contain the struct of the linked list and
 		 the decleration functions for implement inked list
 \********************************************************/
 
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -31,3 +34,5 @@ void free_node_in_list(node_in_list* node_to_delete);
 node_in_list* delete_first_node_in_list(node_in_list** head);
 void* get_content_of_node(node_in_list *current_node);
 unsigned int length_of_list(node_in_list *head);
+
+#endif

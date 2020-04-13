@@ -309,3 +309,31 @@ void* get_content_of_node(node_in_list *current_node) {
 	\********************************************************/
 	return current_node->element;
 }
+
+unsigned int length_of_list(node_in_list *head) {
+	/********************************************************\
+	* Function name - length_of_list
+	*
+	* Function Purpose - calculate the length of the list
+	*
+	* Parameters - IN node_in_list* head - pointer to the first node
+	*				in linked list
+	*
+	* Return Value - the length of the list
+	*
+	* Side Effects - this function has no side affects
+	*
+	* Semantics - this function return the length of the list
+	*
+	* Author - Liri
+	\********************************************************/
+	node_in_list *current_node;
+	int length = INITIAL_LENGTH;
+
+	current_node = head;
+	while (NULL != current_node) {
+		++length;
+		current_node = current_node->next;
+	}
+	return length;
+}
